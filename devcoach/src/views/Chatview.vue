@@ -49,7 +49,7 @@ const loading = ref(false)
 
 onMounted(async () => {
   try {
-    const res = await axios.post('http://localhost:8000/jobdescription', {
+    const res = await axios.post('/api/jobdescription', {
       company,
       url
     })
@@ -83,7 +83,7 @@ const handleResumeUpload = async ({ question, answer }) => {
   const detail = jobDetailsList.value.find(j => j.직무명 === selectedJob.value)
 
   try {
-    const res = await axios.post('http://localhost:8000/assistant', {
+    const res = await axios.post('/api/assistant', {
       company,
       position: selectedJob.value,
       qualifications: (detail?.자격요건 || []).join('\n'),

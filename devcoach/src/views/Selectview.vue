@@ -51,7 +51,7 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
-  axios.get('http://localhost:8000/search',
+  axios.get('/api/search',
  {params: {
     company: searchQuery.value
   }}).then(response => {
