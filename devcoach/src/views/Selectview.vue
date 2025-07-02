@@ -1,40 +1,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import Card from '@/components/Card.vue'
+import axios from 'axios' 
+import { useRoute } from 'vue-router'
+const route = useRoute()
+console.log(route.query.q)
+const searchQuery = ref(route.query.q || '')
 
 const fullResults = ref([
-  {
-    name: '(주)지아이티',
-    job: '현대자동차그룹지아이티전장사업팀 스마트팩토리 파트 (완성차) 경력 채용',
-    url: 'https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=51144928',
-    place: '서울 송파구 외',
-    career: '경력 5년↑ · 인턴직',
-    education: '대학교(4년)↑'
-  },
-  {
-    name: '(주)지아이티',
-    job: '현대자동차그룹 (주)지아이티6월 경력 채용',
-    url: 'https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=51078702',
-    place: '서울 송파구 외',
-    career: '경력 3년↑ · 인턴직',
-    education: '대학교(4년)↑'
-  },
-  {
-    name: '㈜지아이티아카데미 대전',
-    job: '[그린컴퓨터아트학원] 웹퍼블리셔  & 프론트엔드 강의 강사 모집',
-    url: 'https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=51041805',
-    place: '대전 서구',
-    career: '경력무관 · 파트 외',
-    education: '대학(2,3년)↑'
-  },
-  {
-    name: '(주)지아이티아카데미 대구',
-    job: '[그린컴퓨터아트학원 대구캠퍼스] 정보보안 분야 강사 모집',
-    url: 'https://www.saramin.co.kr/zf_user/jobs/relay/view?view_type=list&rec_idx=51024767',
-    place: '대구 중구',
-    career: '경력 3년↑ · 정규직 외',
-    education: '학력무관'
-  }
 ])
 
 const postsToRender = ref([])
@@ -78,7 +51,21 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
-  renderNextChunk()
+  axios.get('http://localhost:8000/search',
+ {params: {
+    company: searchQuery.value
+  }}).then(response => {
+      fullResults.value = response.data
+      if (fullResults.value.length > 0) {
+        renderNextChunk()
+      } else {
+        hasMore.value = false
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching posts:', error)
+      hasMore.value = false
+    })
   window.addEventListener('scroll', handleScroll)
 })
 
