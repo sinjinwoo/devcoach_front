@@ -6,7 +6,7 @@ import Footer from "@/components/Footer.vue";
 <template>
 <Navbar></Navbar>
 
-<div class="mx-auto">
+<div class="mx-auto pt-10">
   <router-view></router-view>
 </div>
 

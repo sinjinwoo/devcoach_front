@@ -9,7 +9,7 @@ const toggleNav = () => {
 </script>
 
 <template>
-  <nav class="bg-white shadow-md px-2 py-1">
+  <nav class="bg-white shadow-md px-2 py-1 fixed top-0 left-0 w-full z-50">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <RouterLink to="/" class="flex items-center">
         <span class="self-center text-lg font-bold text-blue-600">DevCoach</span>
@@ -34,18 +34,18 @@ const toggleNav = () => {
         ]"
         id="navbar-default"
       >
-        <ul class="flex flex-col gap-1 p-2 mt-2 border border-blue-100 rounded-lg bg-white md:flex-row md:space-x-2 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+        <ul class="flex flex-col gap-1 p-2 mt-2  bg-white md:flex-row md:space-x-2 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
           <li>
-            <RouterLink to="/start" class="block px-2 py-1 rounded-md text-blue-600 hover:bg-blue-50 hover:text-blue-800 transition">시작하기</RouterLink>
+            <RouterLink to="/search" class="block px-2 py-1 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-800 transition">시작하기</RouterLink>
           </li>
           <li>
-            <RouterLink to="/help" class="block px-2 py-1 rounded-md text-blue-600 hover:bg-blue-50 hover:text-blue-800 transition">도움말</RouterLink>
+            <RouterLink to="/help" class="block px-2 py-1 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-800 transition">도움말</RouterLink>
           </li>
           <li>
-            <RouterLink to="/login" class="block px-2 py-1 rounded-md border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition">로그인</RouterLink>
+            <RouterLink to="/login" class="block px-2 py-1 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-800 transition">로그인</RouterLink>
           </li>
           <li>
-            <RouterLink to="/signup" class="block px-2 py-1 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition">회원가입</RouterLink>
+            <RouterLink to="/signup" class="block px-2 py-1 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-800 transition">회원가입</RouterLink>
           </li>
         </ul>
       </div>

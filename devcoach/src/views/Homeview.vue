@@ -8,7 +8,7 @@
             <img
                 src="@/assets/intro-image.png"
                 alt="intro"
-                class="w-full max-w-md md:max-w-lg h-auto object-contain drop-shadow-2xl rounded-3xl border-4 border-white"
+                class="w-full max-w-md md:max-w-lg h-auto object-contain drop-shadow-2xl rounded-3xl border-3 border-white"
             />
         </div>
         <!-- 오른쪽: 텍스트 -->
@@ -22,10 +22,13 @@
                 자기소개서를 분석해드려요.
             </p>
             <div class="flex justify-center md:justify-start space-x-4 mt-4">
-                <button class="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-2xl shadow-lg hover:scale-105 hover:from-blue-700 hover:to-blue-500 transition-all font-semibold text-lg">
+                <button 
+                class="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-2xl shadow-lg hover:scale-105 hover:from-blue-700 hover:to-blue-500 transition-all font-semibold text-lg"
+                @click="$router.push('/search')">
                     시작하기
                 </button>
-                <button class="px-8 py-3 border-2 border-blue-400 text-blue-600 rounded-2xl bg-white shadow hover:bg-blue-50 hover:border-blue-600 transition-all font-semibold text-lg">
+                <button class="px-8 py-3 border-2 border-blue-400 text-blue-600 rounded-2xl bg-white shadow hover:bg-blue-50 hover:border-blue-600 transition-all font-semibold text-lg"
+                @click="$router.push('/help')">
                     도움말
                 </button>
             </div>

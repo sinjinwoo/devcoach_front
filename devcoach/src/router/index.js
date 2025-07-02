@@ -9,15 +9,42 @@ const router = createRouter({
       component: () => import('@/views/Homeview.vue')
     },
     {
-      path: '/start',
-      name: 'start',
-      component: () => import('@/views/Startview.vue')
+      path: '/search',
+      name: 'search',
+      component: () => import('@/views/Searchview.vue')
     },
     {
       path: '/select',
       name: 'select',
       component: () => import('@/views/Selectview.vue')
-    }
+    },
+    {
+      path: '/help',
+      name: 'help',
+      component: () => import('@/views/Helpview.vue')
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: () => import('@/views/Chatview.vue'),
+      }
+    ,
+    {
+      path: '/login',
+      name: 'login',
+      beforeEnter: (to, from, next) => {
+        alert('서비스 준비중입니다');
+        next('/');
+      }
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      beforeEnter: (to, from, next) => {
+        alert('서비스 준비중입니다');
+        next('/');
+      }
+    },
   ],
 })
 
