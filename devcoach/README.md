@@ -33,3 +33,20 @@ npm run build
 ```sh
 npm run lint
 ```
+### Deployment
+
+```sh
+sudo apt update
+sudo apt install nginx
+
+nginx --version
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+
+sudo nano /etc/nginx/sites-available/default
+
+sudo nginx -t
+sudo systemctl reload nginx
+```
