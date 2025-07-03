@@ -62,7 +62,7 @@ export const useChatStore = defineStore('chatStore', () => {
       messages.value.push({ role: 'bot', content: `첨삭 결과: ${res.data.reply.assistant_reply}` })
     } catch (err) {
       console.error('첨삭 실패:', err)
-      
+      const dots= messages.value.pop()
       messages.value.push({ role: 'bot', content: '❌ 첨삭에 실패했습니다.' })
     } finally {
       loading.value = false
