@@ -16,7 +16,7 @@ export const useSelectStore = defineStore('selectStore', () => {
     searchQuery.value = query
     isLoading.value = true
     try {
-      const res = await axios.get('http://localhost:8000/search', {
+      const res = await axios.get(' /api/search', {
         params: { company: query }
       })
 

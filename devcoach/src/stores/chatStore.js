@@ -12,7 +12,7 @@ export const useChatStore = defineStore('chatStore', () => {
 
   const fetchJobDescriptions = async (company, url, jobTitle) => {
     try {
-      const res = await axios.post('http://localhost:8000/jobdescription', {
+      const res = await axios.post(' /api/jobdescription', {
         company,
         url
       })
@@ -46,7 +46,7 @@ export const useChatStore = defineStore('chatStore', () => {
     messages.value.push({ role: 'bot', content: ' ' })
     loading.value = true
     try {
-      const res = await axios.post('http://localhost:8000/assistant', {
+      const res = await axios.post(' /api/assistant', {
         company,
         position: selectedJob.value,
         qualifications: (detail?.자격요건 || []).join('\n'),
