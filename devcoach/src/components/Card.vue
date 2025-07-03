@@ -30,14 +30,7 @@
       <button
         type="button"
         class="flex-1 text-center text-white bg-gradient-to-r from-blue-500 to-blue-400 px-4 py-2 rounded-lg font-semibold shadow hover:from-blue-600 hover:to-blue-500 transition"
-        @click="$router.push({
-        path: '/chat',
-        query: {
-            companyName: post.name,
-            jobTitle: post.job,
-            url: post.url
-        }
-        })"   
+        @click=" handleCardClick(post) "
         >
         자소서 첨삭하기
       </button>
@@ -48,8 +41,25 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { useChatStore } from '@/stores/chatStore'
+
 const router = useRouter()
+const chatStore = useChatStore()
+
 defineProps({
   post: Object
 })
+
+const handleCardClick = (post) => {
+  chatStore.reset() // ✅ 상태 초기화
+  router.push({
+    name: 'chat',
+    query: {
+      companyName: post.name,
+      jobTitle: post.job,
+      url: post.url
+    }
+  })
+}
 </script>
+

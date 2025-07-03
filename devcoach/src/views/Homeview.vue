@@ -4,7 +4,7 @@
         <div class="absolute top-0 left-0 w-100 h-100 bg-blue-200 opacity-30 rounded-full blur-3xl -z-10 animate-pulse"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-400 opacity-20 rounded-full blur-2xl -z-10"></div>
         <!-- 왼쪽: 이미지 -->
-        <div class="w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
+        <div class="h-99 w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
             <img
                 src="@/assets/intro-image.png"
                 alt="intro"
