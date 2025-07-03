@@ -59,7 +59,7 @@ export const useChatStore = defineStore('chatStore', () => {
       })
       const dots= messages.value.pop() // 마지막 봇 메시지 제거
 
-      messages.value.push({ role: 'bot', content: `첨삭 결과: ${res.data.reply.assistant_reply}` })
+      messages.value.push({ role: 'bot', content: `첨삭 결과: ${res.data.reply}` })
     } catch (err) {
       console.error('첨삭 실패:', err)
       const dots= messages.value.pop()
