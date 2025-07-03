@@ -27,7 +27,7 @@ const qualifications = ref('')
 const requirements = ref('')
 const duties = ref('')
 const preferred = ref('')
-
+const ideal = ref('')
 const route = useRoute()
 const step = ref('selectJob')
 const selectedJob = ref(null)
@@ -86,10 +86,13 @@ const handleResumeUpload = async ({ question, answer }) => {
     const res = await axios.post('http://localhost:8000/assistant', {
       company,
       position: selectedJob.value,
-      qualifications: (detail?.자격요건 || []).join('\n'),
-      requirements: (detail?.필수사항 || []).join('\n'),
-      duties: (detail?.담당업무 || []).join('\n'),
-      preferred: (detail?.우대사항 || []).join('\n'),
+      qualifications: (detail?.자격요건 === "None" ? '' : (detail?.자격요건 || []).join('\n')),
+      requirements: (detail?.필수사항 === "None" ? '' : (detail?.필수사항 || []).join('\n')),
+      duties: (detail?.담당업무 === "None" ? '' : (detail?.담당업무 || []).join('\n')),
+      preferred: (detail?.우대사항 === "None" ? '' : (detail?.우대사항 || []).join('\n')),
+      ideal: (detail?.인재상 === "None" ? '' : (detail?.인재상 || []).join('\n')),
+      question,
+      answer
     })
 
     messages.value.push({
